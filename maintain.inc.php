@@ -20,22 +20,16 @@
 // +-----------------------------------------------------------------------+
 
 if (!defined('PHPWG_ROOT_PATH')) {
-  die('Hacking attempt!');
+    die('Hacking attempt!');
 }
 
-function plugin_install($plugin_id, $plugin_version, &$errors) {
-}
-
-function plugin_activate($plugin_id, $plugin_version, &$errors) {
-}
-
-function plugin_deactivate($plugin_id) { 
-}
-
-function plugin_uninstall($plugin_id) {
-  $config_file = PHPWG_ROOT_PATH . $GLOBALS['conf']['data_location'] . 'plugins/';
-  $config_file .= basename(dirname(__FILE__)).'.dat';
-  if (file_exists($config_file)) {
-    unlink($config_file);
-  }
+class user_tags_maintain extends PluginMaintain
+{
+    public function uninstall() {
+        $config_file = PHPWG_ROOT_PATH . $GLOBALS['conf']['data_location'] . 'plugins/';
+        $config_file .= basename(dirname(__FILE__)).'.dat';
+        if (is_writable($config_file)) {
+            unlink($config_file);
+        }
+    }
 }

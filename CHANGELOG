@@ -1,3 +1,7 @@
+User Tags 0.9.9 - 2014-10-15
+================================
+* Make plugin compatible with piwigo 2.7.*
+
 User Tags 0.8.3 - 2013-11-23
 ================================
 * small issue with paramter called by value
@@ -63,7 +67,7 @@ User Tags 0.4.2 - 2011-02-19
 
 User Tags 0.4.1 - 2011-02-01
 ================================
-* Fix javascript issue for Internet Explorer 8. 
+* Fix javascript issue for Internet Explorer 8.
   That browser takes the word "class" as a javascript reserved word
   and aborts the script. Thanks to cljosse.
 
@@ -71,8 +75,8 @@ User Tags 0.4.0 - 2011-02-01
 ================================
 * Fix translation issue
 * Fix bugs with special configuration params :
-      - $conf['question_mark_in_urls'] = false; 
-      - $conf['php_extension_in_urls'] = false; 
+      - $conf['question_mark_in_urls'] = false;
+      - $conf['php_extension_in_urls'] = false;
 * Prepare piwigo release 2.2 (func_combine_script instead of func_known_script)
 
 User Tags 0.3.5 - 2010-09-18
