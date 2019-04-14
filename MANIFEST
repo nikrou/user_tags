@@ -21,6 +21,7 @@ user_tags/language/en_UK/index.php
 user_tags/language/en_UK/description.txt
 user_tags/language/en_UK/help/index.php
 user_tags/language/en_UK/help/readme.html
+user_tags/language/bg_BG/plugin.lang.php
 user_tags/language/pt_PT/plugin.lang.php
 user_tags/language/pt_PT/description.txt
 user_tags/language/pt_PT/help/readme.html

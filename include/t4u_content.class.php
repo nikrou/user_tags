@@ -50,8 +50,9 @@ class t4u_Content
       }
       
       $related_tags = array();
-      if (!empty($template->smarty->_tpl_vars['related_tags'])) {
-        foreach ($template->smarty->_tpl_vars['related_tags'] as $id => $tag_infos) {
+      $_tpl_vars = $template->get_template_vars('related_tags');
+      if (!empty($_tpl_vars)) {
+        foreach ($_tpl_vars as $id => $tag_infos) {
           $related_tags['~~'.$tag_infos['id'].'~~'] = $tag_infos['name']; 
         }
         $template->assign('T4U_RELATED_TAGS', $related_tags);
@@ -64,7 +65,7 @@ class t4u_Content
     return $content;
   }
 
-  public static function picture_prefilter($source, &$smarty) {
+  public static function picture_prefilter($source, $smarty) {
     $pattern = '{if $display_info.tags and isset($related_tags)}';
     $replace = '{if $display_info.tags}';
     
