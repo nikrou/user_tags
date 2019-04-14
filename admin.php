@@ -41,15 +41,11 @@ if (!empty($_POST['submit'])) {
     $save_config = true;
   }
 
-  Log::getInstance()->debug($_POST);
-  Log::getInstance()->debug($me);
   if (!empty($_POST['existing_tags_only']) 
       && $_POST['existing_tags_only']!=$me->getPermission('existing_tags_only')) {
-    Log::getInstance()->debug('à mettre à 1');
     $me->setPermission('existing_tags_only', 1);
     $save_config = true;
   } elseif (!isset($_POST['existing_tags_only']) && $me->getPermission('existing_tags_only')!=0) {
-    Log::getInstance()->debug('à mettre à O');
     $me->setPermission('existing_tags_only', 0);
     $save_config = true;    
   }
