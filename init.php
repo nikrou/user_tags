@@ -1,23 +1,13 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | User Tags  - a plugin for Piwigo                                      |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2010-2013 Nicolas Roudaire        http://www.nikrou.net  |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License version 2 as     |
-// | published by the Free Software Foundation                             |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,            |
-// | MA 02110-1301 USA.                                                    |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of user_tags package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the GPL version 2.0 license.
+ *
+ * For the full copyright and license information, please view the COPYING
+ * file that was distributed with this source code.
+ */
 
 if (!defined('PHPWG_ROOT_PATH')) {
   die('Hacking attempt!');
@@ -28,15 +18,15 @@ define('T4U_PLUGIN_ROOT', dirname(__FILE__));
 include_once T4U_PLUGIN_ROOT . "/include/constants.inc.php";
 include_once T4U_PLUGIN_ROOT . "/include/autoload.inc.php";
 
-$plugin_config = t4u_Config::getInstance();
+$plugin_config = userTags\Config::getInstance();
 $plugin_config->load_config();
 
-if (defined('IN_ADMIN')) { 
-  add_event_handler('get_admin_plugin_menu_links', 
-                    't4u_Config::plugin_admin_menu'
-                    ); 
-  add_event_handler('get_popup_help_content', 
-                    't4u_Config::get_admin_help',
+if (defined('IN_ADMIN')) {
+  add_event_handler('get_admin_plugin_menu_links',
+                    'userTags\Config::plugin_admin_menu'
+                    );
+  add_event_handler('get_popup_help_content',
+                    'userTags\Config::get_admin_help',
                     EVENT_HANDLER_PRIORITY_NEUTRAL,
                     2
                     );

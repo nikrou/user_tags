@@ -1,23 +1,13 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | User Tags  - a plugin for Piwigo                                      |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2010-2013 Nicolas Roudaire        http://www.nikrou.net  |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License version 2 as     |
-// | published by the Free Software Foundation                             |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,            |
-// | MA 02110-1301 USA.                                                    |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of user_tags package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the GPL version 2.0 license.
+ *
+ * For the full copyright and license information, please view the COPYING
+ * file that was distributed with this source code.
+ */
 
 if (!defined('PHPWG_ROOT_PATH')) {
   die('Hacking attempt!');
@@ -25,33 +15,33 @@ if (!defined('PHPWG_ROOT_PATH')) {
 
 load_language('plugin.lang', T4U_PLUGIN_LANG);
 
-$me = t4u_Config::getInstance();
+$me = userTags\Config::getInstance();
 $save_config = false;
 
 $status_options[null] = '----------';
 foreach (get_enums(USER_INFOS_TABLE, 'status') as $status) {
-  $status_options[$status] = l10n('user_status_'.$status);
+  $status_options[$status] = l10n('user_status_' . $status);
 }
 
 if (!empty($_POST['submit'])) {
-  if (isset($_POST['permission_add']) && isset($status_options[$_POST['permission_add']]) 
-      && $_POST['permission_add']!=$me->getPermission('add')) {
+  if (isset($_POST['permission_add'], $status_options[$_POST['permission_add']])
+      && $_POST['permission_add'] != $me->getPermission('add')) {
     $me->setPermission('add', $_POST['permission_add']);
     $page['infos'][] = l10n('Add permission updated');
     $save_config = true;
   }
 
-  if (!empty($_POST['existing_tags_only']) 
-      && $_POST['existing_tags_only']!=$me->getPermission('existing_tags_only')) {
+  if (!empty($_POST['existing_tags_only'])
+      && $_POST['existing_tags_only'] != $me->getPermission('existing_tags_only')) {
     $me->setPermission('existing_tags_only', 1);
     $save_config = true;
-  } elseif (!isset($_POST['existing_tags_only']) && $me->getPermission('existing_tags_only')!=0) {
+  } elseif (!isset($_POST['existing_tags_only']) && $me->getPermission('existing_tags_only') != 0) {
     $me->setPermission('existing_tags_only', 0);
-    $save_config = true;    
+    $save_config = true;
   }
-  
-  if (isset($_POST['permission_delete']) && isset($status_options[$_POST['permission_delete']]) 
-      && $_POST['permission_delete']!=$me->getPermission('delete')) {
+
+  if (isset($_POST['permission_delete'], $status_options[$_POST['permission_delete']])
+      && $_POST['permission_delete'] != $me->getPermission('delete')) {
     $me->setPermission('delete', $_POST['permission_delete']);
     $page['infos'] = l10n('Delete permission updated');
     $save_config = true;
@@ -62,7 +52,7 @@ if (!empty($_POST['submit'])) {
   }
 }
 
-$template->set_filenames(array('plugin_admin_content' => T4U_TEMPLATE . '/admin.tpl'));
+$template->set_filenames(['plugin_admin_content' => T4U_TEMPLATE . '/admin.tpl']);
 $template->assign('T4U_CSS', T4U_CSS);
 
 $template->assign('T4U_PERMISSION_ADD', $me->getPermission('add'));
@@ -71,4 +61,4 @@ $template->assign('T4U_EXISTING_TAG_ONLY', $me->getPermission('existing_tags_onl
 $template->assign('STATUS_OPTIONS', $status_options);
 $template->assign_var_from_handle('ADMIN_CONTENT', 'plugin_admin_content');
 
-$template->assign('U_HELP', get_root_url().'admin/popuphelp.php?page=readme');
+$template->assign('U_HELP', get_root_url() . 'admin/popuphelp.php?page=readme');
