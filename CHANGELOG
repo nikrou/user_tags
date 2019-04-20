@@ -1,4 +1,12 @@
-User Tags 0.9.9 - 2014-10-15
+User Tags 0.9.2 - 2019-04-19
+================================
+* Fix deprecated used of __autoload
+
+User Tags 0.9.1 - 2019-04-14
+================================
+* Make plugin compatible with piwigo 2.9.*
+
+User Tags 0.9.0 - 2014-10-15
 ================================
 * Make plugin compatible with piwigo 2.7.*
 

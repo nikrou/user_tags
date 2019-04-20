@@ -5,11 +5,11 @@
 
 var t4u_list_script = '{$T4U_LIST_SCRIPT}';
 var vocab = [];
-vocab['click_to_add_tags'] = "{'Click to add tags'|@translate}";
-vocab['start_to_type'] = "{'Start to type'|@translate}...";
-vocab['no_results'] = "{'No results'|@translate}",
-vocab['searching_text'] = "{'Searching...'|@translate}",
-vocab['new_text'] = " ({'new'|@translate})";
+vocab['click_to_add_tags'] = "{'Click to add tags'|translate}";
+vocab['start_to_type'] = "{'Start to type'|translate}...";
+vocab['no_results'] = "{'No results'|translate}",
+vocab['searching_text'] = "{'Searching...'|translate}",
+vocab['new_text'] = " ({'new'|translate})";
 var t4u_allow_creation = {$T4U_ALLOW_CREATION};
 {/footer_script}
 
@@ -22,5 +22,5 @@ var t4u_allow_creation = {$T4U_ALLOW_CREATION};
     <option value="{$id}">{$tag}</option>
     {/foreach}
   </select>
-  <input id="t4u-update" type="submit" disabled="disabled" class="t4u-disabled" value="{'Update tags'|@translate}">
+  <input id="t4u-update" type="submit" disabled="disabled" class="t4u-disabled" value="{'Update tags'|translate}">
 </form>

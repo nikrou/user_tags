@@ -1,0 +1,17 @@
+{
+    "php-cs-fixer.config": "/var/projets/git/user_tags/.php_cs.dist",
+    "files.exclude": {
+        "**/.dist": true,
+        "**/_data": true,
+        "**/target": true,
+        "**/*~": true
+    },
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/.dist": true,
+        "**/node_modules/**": true,
+        "**/vendor/**": true,
+        "**/var/cache/**": true,
+        "**/var/log/**": true
+    },
+}
