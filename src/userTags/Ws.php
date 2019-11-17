@@ -78,7 +78,7 @@ class Ws
     $new_tags = array_diff($tags_to_associate, $current_tags_ids);
 
     if (count($removed_tags) > 0) {
-      if (!t4u_Config::getInstance()->hasPermission('delete')) {
+      if (!Config::getInstance()->hasPermission('delete')) {
         $message['error'][] = l10n('You are not allowed to delete tags');
       } else {
         $message['info'] = l10n('Tags updated');

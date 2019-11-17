@@ -5,6 +5,7 @@ user_tags/css/style.css
 user_tags/css/admin.css
 user_tags/init.php
 user_tags/admin.php
+user_tags/CHANGELOG.md
 user_tags/maintain.inc.php
 user_tags/language/sk_SK/plugin.lang.php
 user_tags/language/sk_SK/help/readme.html
@@ -71,7 +72,6 @@ user_tags/language/zh_CN/description.txt
 user_tags/include/autoload.inc.php
 user_tags/include/constants.inc.php
 user_tags/include/default_values.inc.php
-user_tags/CHANGELOG
 user_tags/MANIFEST
 user_tags/template/add_tags.tpl
 user_tags/template/admin.tpl

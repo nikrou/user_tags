@@ -1,11 +1,11 @@
 DIST=.dist
 PLUGIN_NAME=$(shell basename `pwd`)
-VERSION=0.9.2
+VERSION=0.9.3
 TARGET=../target
 
 config: clean manifest
 	mkdir -p $(DIST)/$(PLUGIN_NAME)
-	cp -pr admin.php BUGS CHANGELOG COPYING css imgs include src init.php js language \
+	cp -pr admin.php BUGS CHANGELOG.md COPYING css imgs include src init.php js language \
 	main.inc.php MANIFEST public.php template $(DIST)/$(PLUGIN_NAME)/
 	find $(DIST) -name '*~' -exec rm \{\} \;
 
