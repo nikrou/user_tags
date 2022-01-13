@@ -1,6 +1,6 @@
 DIST=.dist
 PLUGIN_NAME=$(shell basename `pwd`)
-VERSION=0.9.3
+VERSION=0.9.4
 TARGET=../target
 
 config: clean manifest

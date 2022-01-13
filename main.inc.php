@@ -11,11 +11,12 @@
 
 /*
 Plugin Name: User Tags
-Version: 0.9.3
+Version: 0.9.4
 Description: Allow visitors to add tag to images
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=441
 Author: nikrou
 Author URI: https://www.nikrou.net/
+Has Settings: true
  */
 
 if (!defined('PHPWG_ROOT_PATH')) {

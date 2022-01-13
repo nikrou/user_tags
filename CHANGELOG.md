@@ -1,3 +1,7 @@
+# User Tags 0.9.4 - 2022-01-12
+
+- Compatibility with Piwigo 12 : link to admin
+
 # User Tags 0.9.3 - 2019-11-17
 
 - Fix use of old method in config class. Thanks to Jens <jens@hetmanek.de>
