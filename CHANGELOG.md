@@ -1,3 +1,7 @@
+# User Tags 0.9.5 - 2022-01-13
+
+- Add sl_SI (Slovenian) translation
+
 # User Tags 0.9.4 - 2022-01-12
 
 - Compatibility with Piwigo 12 : link to admin

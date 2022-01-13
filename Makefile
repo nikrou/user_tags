@@ -1,6 +1,6 @@
 DIST=.dist
 PLUGIN_NAME=$(shell basename `pwd`)
-VERSION=0.9.4
+VERSION=$(shell grep "Version:" ./main.inc.php| sed -e 's/.*: //')
 TARGET=../target
 
 config: clean manifest
