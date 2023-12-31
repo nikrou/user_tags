@@ -1,3 +1,7 @@
+# User Tags 1.0.0 - 2023-12-30
+
+- Make plugin compatible with piwigo 14
+
 # User Tags 0.9.5 - 2022-01-13
 
 - Add sl_SI (Slovenian) translation
@@ -94,8 +98,7 @@
 # User Tags 0.4.0 - 2011-02-01
 
 - Fix translation issue
-- Fix bugs with special configuration params : - $conf['question_mark_in_urls'] = false;
-      - $conf['php_extension_in_urls'] = false;
+- Fix bugs with special configuration params : - $conf['question_mark_in_urls'] = false; - $conf['php_extension_in_urls'] = false;
 - Prepare piwigo release 2.2 (func_combine_script instead of func_known_script)
 
 # User Tags 0.3.5 - 2010-09-18

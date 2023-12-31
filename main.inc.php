@@ -11,7 +11,7 @@
 
 /*
 Plugin Name: User Tags
-Version: 0.9.5
+Version: 1.0.0
 Description: Allow visitors to add tag to images
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=441
 Author: nikrou

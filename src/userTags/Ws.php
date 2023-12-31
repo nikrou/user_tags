@@ -19,12 +19,12 @@ class Ws
     load_language('plugin.lang', T4U_PLUGIN_LANG);
     $service = &$arr[0];
 
-    $service->addMethod(T4U_WS . 'list', [$this, 'tagsList'],
+    $service->addMethod(T4U_WS . 'list', $this->tagsList(...),
                         ['q' => []],
                         'retrieves a list of tags than can be filtered'
                         );
 
-    $service->addMethod(T4U_WS . 'update', [$this, 'updateTags'],
+    $service->addMethod(T4U_WS . 'update', $this->updateTags(...),
                         ['image_id' => [],
                             'tags' => ['default' => []]
                         ],
@@ -35,14 +35,12 @@ class Ws
   public function tagsList($params, &$service) {
     $query = 'SELECT id AS tag_id, name AS tag_name FROM ' . TAGS_TABLE;
     if (!empty($params['q'])) {
-      $query .= sprintf(' WHERE LOWER(name) like \'%%%s%%\'', strtolower(pwg_db_real_escape_string($params['q'])));
+      $query .= sprintf(' WHERE LOWER(name) like \'%%%s%%\'', strtolower((string) pwg_db_real_escape_string($params['q'])));
     }
 
     $tagslist = $this->__makeTagsList($query);
     unset($tagslist['__associative_tags']);
-    usort($tagslist, function($a, $b) {
-      return strcasecmp($a['name'], $b['name']);
-    });
+    usort($tagslist, fn($a, $b) => strcasecmp((string) $a['name'], (string) $b['name']));
 
     return $tagslist;
   }
@@ -71,7 +69,7 @@ class Ws
     if (empty($params['tags'])) {
       $tags_to_associate = [];
     } else {
-      $tags_to_associate = explode(',', $params['tags']);
+      $tags_to_associate = explode(',', (string) $params['tags']);
     }
 
     $removed_tags = array_diff($current_tags_ids, $tags_to_associate);

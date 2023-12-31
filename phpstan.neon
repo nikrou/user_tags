@@ -1,0 +1,19 @@
+includes:
+  - phpstan-baseline.neon
+
+parameters:
+  level: 1
+
+  bootstrapFiles:
+    - phpstan.bootstrap
+
+  paths:
+    - src
+    - template
+    - main.inc.php
+    - maintain.inc.php
+    - admin.php
+    - init.php
+    - public.php
+
+  reportUnmatchedIgnoredErrors: true

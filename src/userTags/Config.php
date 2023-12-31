@@ -54,7 +54,7 @@ class Config
   }
 
   private function get_config_filename() {
-    return $this->get_config_file_dir() . basename($this->plugin_dir) . '.dat';
+    return $this->get_config_file_dir() . basename((string) $this->plugin_dir) . '.dat';
   }
 
   public function __set($key, $value) {
@@ -62,7 +62,7 @@ class Config
   }
 
   public function __get($key) {
-    return isset($this->config[$key])?$this->config[$key]:null;
+    return $this->config[$key] ?? null;
   }
 
   public function setPermission($permission, $value) {
@@ -70,7 +70,7 @@ class Config
   }
 
   public function getPermission($permission) {
-    return isset($this->config['permissions'][$permission])?$this->config['permissions'][$permission]:null;
+    return $this->config['permissions'][$permission] ?? null;
   }
 
   public function hasPermission($permission = 'add') {
