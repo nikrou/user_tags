@@ -1,3 +1,7 @@
+# User Tags 1.0.1 - 2023-12-30
+
+- Partially revert previous commit to make plugin still compatible with PHP 7.4
+
 # User Tags 1.0.0 - 2023-12-30
 
 - Make plugin compatible with piwigo 14

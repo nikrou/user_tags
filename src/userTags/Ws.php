@@ -19,12 +19,12 @@ class Ws
     load_language('plugin.lang', T4U_PLUGIN_LANG);
     $service = &$arr[0];
 
-    $service->addMethod(T4U_WS . 'list', $this->tagsList(...),
+    $service->addMethod(T4U_WS . 'list', [$this, 'tagsList'],
                         ['q' => []],
                         'retrieves a list of tags than can be filtered'
                         );
 
-    $service->addMethod(T4U_WS . 'update', $this->updateTags(...),
+    $service->addMethod(T4U_WS . 'update', [$this, 'updateTags'],
                         ['image_id' => [],
                             'tags' => ['default' => []]
                         ],
