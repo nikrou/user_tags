@@ -1,3 +1,11 @@
+# User Tags 1.0.3 - 2024-02-01
+
+- page[MESSAGE_TYPE] must be an array
+
+# User Tags 1.0.2 - 2024-02-01
+
+- Fix issue when several messages were added to queue
+
 # User Tags 1.0.1 - 2023-12-30
 
 - Partially revert previous commit to make plugin still compatible with PHP 7.4

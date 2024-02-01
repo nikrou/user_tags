@@ -43,7 +43,7 @@ if (!empty($_POST['submit'])) {
   if (isset($_POST['permission_delete'], $status_options[$_POST['permission_delete']])
       && $_POST['permission_delete'] != $me->getPermission('delete')) {
     $me->setPermission('delete', $_POST['permission_delete']);
-    $page['infos'] = l10n('Delete permission updated');
+    $page['infos'][] = l10n('Delete permission updated');
     $save_config = true;
   }
 
