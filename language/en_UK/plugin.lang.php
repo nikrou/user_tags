@@ -30,6 +30,7 @@ $lang['You can choose which users (per status) can add and delete tags.'] = 'You
 $lang['Click to add tags'] = 'Click to add tag';
 $lang['Start to type'] = 'Start to type';
 $lang['Tags updated'] = 'Tags updated';
+$lang['Tags deleted'] = 'Tags deleted';
 $lang['Update tags'] = 'Update tags';
 $lang['You are not allowed to add nor delete tags'] = 'You are not allowed to add nor delete tags';
 $lang['You are not allowed to add tags'] = 'You are not allowed to add tags';

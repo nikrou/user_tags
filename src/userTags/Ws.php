@@ -79,9 +79,10 @@ class Ws
       if (!Config::getInstance()->hasPermission('delete')) {
         $message['error'][] = l10n('You are not allowed to delete tags');
       } else {
-        $message['info'] = l10n('Tags updated');
+        $message['info'][] = l10n('Tags deleted');
       }
     }
+
     if (count($new_tags) > 0) {
       if (!Config::getInstance()->hasPermission('add')) {
         $message['error'][] = l10n('You are not allowed to add tags');

@@ -23,6 +23,7 @@ $lang['You can choose which users (per status) can add and delete tags.'] = 'Vou
 $lang['Click to add tags'] = 'Cliquez pour ajouter des tags';
 $lang['Start to type'] = 'Commencez à taper';
 $lang['Tags updated'] = 'Les tags ont été mis à jour';
+$lang['Tags deleted'] = 'Les tags ont été supprimés';
 $lang['Update tags'] = 'Mettre à jour les tags';
 $lang['You are not allowed to add nor delete tags'] = 'Vous n\êtes pas autorisé à ajouter, ni supprimer de tags';
 $lang['You are not allowed to add tags'] = 'Vous n\êtes pas autorisé à ajouter de tags';
