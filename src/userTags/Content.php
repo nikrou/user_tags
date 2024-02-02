@@ -54,9 +54,9 @@ class Content
                 foreach ($_tpl_vars as $id => $tag_infos) {
                     $related_tags['~~' . $tag_infos['id'] . '~~'] = $tag_infos['name'];
                 }
-                $template->assign('T4U_RELATED_TAGS', $related_tags);
             }
 
+            $template->assign('T4U_RELATED_TAGS', $related_tags);
             $template->assign('related_tags', $_tpl_vars);
             $template->set_filename('add_tags', T4U_TEMPLATE . '/add_tags.tpl');
             $template->assign_var_from_handle('PLUGIN_PICTURE_AFTER', 'add_tags');

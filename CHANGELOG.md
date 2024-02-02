@@ -1,3 +1,7 @@
+# User Tags 1.0.4 - 2024-02-02
+
+- Fix undefined T4U_RELATED_TAGS variable
+
 # User Tags 1.0.3 - 2024-02-01
 
 - page[MESSAGE_TYPE] must be an array
