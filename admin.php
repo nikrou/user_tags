@@ -61,4 +61,4 @@ $template->assign('T4U_EXISTING_TAG_ONLY', $me->getPermission('existing_tags_onl
 $template->assign('STATUS_OPTIONS', $status_options);
 $template->assign_var_from_handle('ADMIN_CONTENT', 'plugin_admin_content');
 
-$template->assign('U_HELP', get_root_url() . 'admin/popuphelp.php?page=readme');
+$template->assign('U_HELP', get_root_url() . 'admin/popuphelp.php?page=' . T4U_HELP);

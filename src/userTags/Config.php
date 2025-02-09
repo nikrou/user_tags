@@ -89,10 +89,14 @@ class Config
   }
 
   public static function get_admin_help($help_content, $page) {
-    return load_language('help/' . $page . '.html',
-                         T4U_PLUGIN_ROOT . '/',
-                         ['return' => true]
-                         );
+      if ($page !== T4U_HELP) {
+          return $help_content;
+      }
+      
+      return load_language('help/' . $page . '.html',
+                           T4U_PLUGIN_ROOT . '/',
+                           ['return' => true]
+      );
   }
 
   public function getActionUrl($action, $method = 'POST') {

@@ -11,6 +11,7 @@
 
 define('T4U_PLUGIN_NAME', 'User Tags');
 define('T4U_PLUGIN_LANG', T4U_PLUGIN_ROOT . '/');
+define('T4U_HELP', 'user_tags_help');
 define('T4U_TEMPLATE', T4U_PLUGIN_ROOT . '/template');
 define('T4U_CSS', PHPWG_PLUGINS_PATH . basename(T4U_PLUGIN_ROOT) . '/css');
 define('T4U_IMGS', PHPWG_PLUGINS_PATH . basename(T4U_PLUGIN_ROOT) . '/imgs');

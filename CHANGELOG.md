@@ -1,3 +1,7 @@
+# User Tags 1.0.5 - 2025-02-09
+
+- Fix popup help that prevents others plugins to use that popup
+
 # User Tags 1.0.4 - 2024-02-02
 
 - Fix undefined T4U_RELATED_TAGS variable
