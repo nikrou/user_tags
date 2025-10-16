@@ -1,0 +1,1 @@
+Permet als visitants poder afegir etiquetes a les imatges
