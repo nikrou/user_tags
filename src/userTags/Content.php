@@ -15,16 +15,13 @@ use Template;
 
 class Content
 {
-    private Config $plugin_config;
-
-    public function __construct($config)
+    public function __construct(private readonly Config $plugin_config)
     {
-        $this->plugin_config = $config;
     }
 
     public function render_element_content($content, $picture)
     {
-        /** @var Template $template */
+        /* @var Template $template */
         global $template;
 
         $template->set_prefilter('picture', [self::class, 'picture_prefilter']);

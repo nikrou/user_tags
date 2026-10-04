@@ -1,25 +1,17 @@
 <?php
 /*
- *  -- BEGIN LICENSE BLOCK ----------------------------------
+ * This file is part of user_tags package
  *
- *  This file is part of eventHandler, a plugin for Dotclear 2.
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the GPL version 2.0 license.
  *
- *  Copyright(c) 2014-2023 Nicolas Roudaire <nikrou77@gmail.com> https://www.nikrou.net
- *
- *  Copyright (c) 2009-2013 Jean-Christian Denis and contributors
- *  contact@jcdenis.fr https://chez.jcdenis.fr/
- *
- *  Licensed under the GPL version 2.0 license.
- *  A copy of this license is available in LICENSE file or at
- *  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- *
- *  -- END LICENSE BLOCK ------------------------------------
+ * For the full copyright and license information, please view the COPYING
+ * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Set\ValueObject\LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {

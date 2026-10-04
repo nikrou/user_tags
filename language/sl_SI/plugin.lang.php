@@ -16,13 +16,13 @@
  * Add EN for Lexiglot
  */
 
- // admin
+// admin
 $lang['Add permission updated'] = 'Dovoljenje za dodajanje posodobljeno';
 $lang['Be careful, whatever the configuration value is, new tag can be deleted anyway'] = 'Bodite previdni, ne glede na konfiguracijsko vrednost, lahko novo oznako vseeno izbrišete';
 $lang['Delete permission updated'] = 'Dovoljenje za brisanje je posodobljeno';
 $lang['That plugin allow visitors to add tags to image.'] = 'Ta vtičnik obiskovalcem omogoča dodajanje oznak na sliko.';
 $lang['Who can add tags?'] = 'Kdo lahko doda oznake?';
-$lang['Only add existing tags'] = 'Dodajte samo obstoječe oznake';//new
+$lang['Only add existing tags'] = 'Dodajte samo obstoječe oznake'; // new
 $lang['Who can delete related tags?'] = 'Kdo lahko izbriše sorodne oznake?';
 $lang['You can choose which users (per status) can add and delete tags.'] = 'Izberete lahko, kateri uporabniki (po statusu) lahko dodajajo in brišejo oznake.';
 

@@ -16,7 +16,7 @@
  * Add EN for Lexiglot
  */
 
- // admin
+// admin
 $lang['Add permission updated'] = 'Add permission updated';
 $lang['Be careful, whatever the configuration value is, new tag can be deleted anyway'] = 'Be careful, whatever the configuration value is, new tag can be deleted anyway';
 $lang['Delete permission updated'] = 'Delete permission updated';

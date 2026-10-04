@@ -10,10 +10,13 @@ parameters:
   paths:
     - src
     - template
+    - include
     - main.inc.php
     - maintain.inc.php
     - admin.php
-    - init.php
     - public.php
+
+  scanDirectories:
+    - ../Piwigo
 
   reportUnmatchedIgnoredErrors: true

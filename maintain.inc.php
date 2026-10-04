@@ -10,12 +10,13 @@
  */
 
 if (!defined('PHPWG_ROOT_PATH')) {
-    die('Hacking attempt!');
+    exit('Hacking attempt!');
 }
 
 class user_tags_maintain extends PluginMaintain
 {
-    public function uninstall() {
+    public function uninstall()
+    {
         $config_file = PHPWG_ROOT_PATH . $GLOBALS['conf']['data_location'] . 'plugins/';
         $config_file .= basename(dirname(__FILE__)) . '.dat';
         if (is_writable($config_file)) {

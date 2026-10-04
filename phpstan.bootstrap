@@ -1,5 +1,6 @@
 <?php
 // Mock some global constants
-define('PHPWG_ROOT_PATH', '../../');
+define('PHPWG_ROOT_PATH', '../');
 define('DC_DEV', true);
 define('TAGS_TABLE', 'tags');
+
