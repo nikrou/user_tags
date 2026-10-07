@@ -9,18 +9,17 @@
  * file that was distributed with this source code.
  */
 
+use UserTags\Config;
+
 if (!defined('PHPWG_ROOT_PATH')) {
     exit('Hacking attempt!');
 }
 
 class user_tags_maintain extends PluginMaintain
 {
-    public function uninstall()
+    #[Override]
+    public function uninstall(): void
     {
-        $config_file = PHPWG_ROOT_PATH . $GLOBALS['conf']['data_location'] . 'plugins/';
-        $config_file .= basename(dirname(__FILE__)) . '.dat';
-        if (is_writable($config_file)) {
-            unlink($config_file);
-        }
+        conf_delete_param(Config::CONFIG_KEY);
     }
 }

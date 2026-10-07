@@ -9,15 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace userTags;
+namespace UserTags;
 
 use PwgError;
+use PwgServer;
 
 class Ws
 {
-    public function addMethods($arr)
+    /**
+     * @param array{0: PwgServer} $arr
+     */
+    public function addMethods(array $arr): void
     {
         load_language('plugin.lang', T4U_PLUGIN_LANG);
+        /** @var PwgServer */
         $service = &$arr[0];
 
         $service->addMethod(T4U_WS . 'list', $this->tagsList(...),
@@ -29,31 +34,43 @@ class Ws
             ['image_id' => [],
                 'tags' => ['default' => []],
             ],
-            'Updates (add or remove) tags associated to an image (POST method only)'
+            'Updates (add or remove) tags associated to an image (POST method only)',
+            null,
+            ['post_only' => true]
         );
     }
 
-    public function tagsList($params, &$service)
+    /**
+     * @param array{q: string} $params
+     *
+     * @return array<int<0, max>, array{id: string, name: mixed}>
+     */
+    public function tagsList(array $params, PwgServer $service): array
     {
         $query = 'SELECT id AS tag_id, name AS tag_name FROM ' . TAGS_TABLE;
         if (!empty($params['q'])) {
             $query .= sprintf(' WHERE LOWER(name) like \'%%%s%%\'', strtolower((string) pwg_db_real_escape_string($params['q'])));
         }
 
-        $tagslist = $this->__makeTagsList($query);
+        $tagslist = $this->makeTagsList($query);
         unset($tagslist['__associative_tags']);
         usort($tagslist, fn ($a, $b) => strcasecmp((string) $a['name'], (string) $b['name']));
 
         return $tagslist;
     }
 
-    public function updateTags($params, &$service)
+    /**
+     * @param array{tags: string, image_id: int} $params
+     *
+     * @return PwgError|array{error: string}|array{error: string[], info: string[]}
+     */
+    public function updateTags($params, PwgServer $service)
     {
         if (!$service->isPost()) {
             return new PwgError(405, 'This method requires HTTP POST');
         }
 
-        if (!Config::getInstance()->hasPermission('add') && !Config::getInstance()->hasPermission('delete')) {
+        if (!Config::getInstance()->hasPermission(PermissionEnum::ADD) && !Config::getInstance()->hasPermission(PermissionEnum::DELETE)) {
             return ['error' => l10n('You are not allowed to add nor delete tags')];
         }
 
@@ -67,7 +84,7 @@ class Ws
         $query .= ' JOIN ' . TAGS_TABLE . ' AS t ON t.id = it.tag_id';
         $query .= sprintf(' WHERE image_id = %s', pwg_db_real_escape_string($params['image_id']));
 
-        $current_tags = $this->__makeTagsList($query);
+        $current_tags = $this->makeTagsList($query);
         $current_tags_ids = array_keys($current_tags['__associative_tags']);
         if (empty($params['tags'])) {
             $tags_to_associate = [];
@@ -79,7 +96,7 @@ class Ws
         $new_tags = array_diff($tags_to_associate, $current_tags_ids);
 
         if (count($removed_tags) > 0) {
-            if (!Config::getInstance()->hasPermission('delete')) {
+            if (!Config::getInstance()->hasPermission(PermissionEnum::DELETE)) {
                 $message['error'][] = l10n('You are not allowed to delete tags');
             } else {
                 $message['info'][] = l10n('Tags deleted');
@@ -87,7 +104,7 @@ class Ws
         }
 
         if (count($new_tags) > 0) {
-            if (!Config::getInstance()->hasPermission('add')) {
+            if (!Config::getInstance()->hasPermission(PermissionEnum::ADD)) {
                 $message['error'][] = l10n('You are not allowed to add tags');
                 $tags_to_associate = array_diff($tags_to_associate, $new_tags);
             } else {
@@ -109,7 +126,10 @@ class Ws
         return $message;
     }
 
-    private function __makeTagsList($query)
+    /**
+     * @return array{__associative_tags: array<string, mixed>, ...<int, array{id: string, name: mixed}>}
+     */
+    private function makeTagsList(string $query): array
     {
         $result = pwg_query($query);
 

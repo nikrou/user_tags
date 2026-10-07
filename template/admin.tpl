@@ -7,26 +7,26 @@
 </div>
 
 <p>
-{'That plugin allow visitors to add tags to image.'|@translate}
-{'You can choose which users (per status) can add and delete tags.'|@translate}
+{'That plugin allow visitors to add tags to image.'|translate}
+{'You can choose which users (per status) can add and delete tags.'|translate}
 </p>
 
 <form method="post" action="" class="general">
 <fieldset>
   <legend>{'Who can add tags?'|translate}</legend>
   <p class="field">
-    <select name="permission_add">
+    <select name="tags_permission_add">
       {html_options options=$STATUS_OPTIONS selected=$T4U_PERMISSION_ADD}
     </select>
   </p>
   <p class="field">
-    <label><input type="checkbox" value="1" name="existing_tags_only" {if ($T4U_EXISTING_TAG_ONLY)}checked="checked"{/if}>{'Only add existing tags'|translate}</label>
+    <label><input type="checkbox" value="1" name="tags_existing_only" {if ($T4U_EXISTING_TAG_ONLY)}checked="checked"{/if}>{'Only add existing tags'|translate}</label>
   </p>
 </fieldset>
 <fieldset>
-  <legend>{'Who can delete related tags?'|@translate}</legend>
+  <legend>{'Who can delete related tags?'|translate}</legend>
   <p class="field">
-    <select name="permission_delete">
+    <select name="tags_permission_delete">
       {html_options options=$STATUS_OPTIONS selected=$T4U_PERMISSION_DELETE}
     </select>
   </p>

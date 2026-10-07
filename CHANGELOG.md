@@ -1,3 +1,7 @@
+# User Tags 1.1.0 - 2026-03-07
+
+- Fix warnings
+
 # User Tags 1.0.6 - 2026-03-04
 
 - Fix php warning, thanks to PHPStan

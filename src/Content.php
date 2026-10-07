@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace userTags;
+namespace UserTags;
 
+use Smarty\Template as SmartyTemplate;
 use Template;
 
 class Content
@@ -19,27 +20,29 @@ class Content
     {
     }
 
-    public function render_element_content($content, $picture)
+    /**
+     * @param array{id: string, url: string} $picture
+     */
+    public function render_element_content(string $content, array $picture): string
     {
         /* @var Template $template */
         global $template;
 
-        $template->set_prefilter('picture', [self::class, 'picture_prefilter']);
+        $template->set_prefilter('picture', [self::class, 'picturePrefilter']);
 
-        if ($this->plugin_config->hasPermission('add')) {
+        if ($this->plugin_config->hasPermission(PermissionEnum::ADD)) {
             load_language('plugin.lang', T4U_PLUGIN_LANG);
 
             $template->assign('T4U_JS', T4U_JS);
             $template->assign('T4U_CSS', T4U_CSS);
             $template->assign('T4U_IMGS', T4U_IMGS);
-            $template->assign('T4U_PERMISSION_DELETE', $this->plugin_config->hasPermission('delete'));
+            $template->assign('T4U_PERMISSION_DELETE', $this->plugin_config->hasPermission(PermissionEnum::DELETE));
             $template->assign('T4U_UPDATE_SCRIPT', get_root_url() . 'ws.php?format=json&method=' . T4U_WS . 'update');
             $template->assign('T4U_UPDATE_METHOD', T4U_WS . 'update');
             $template->assign('T4U_LIST_SCRIPT', get_root_url() . 'ws.php?format=json&method=' . T4U_WS . 'list');
             $template->assign('T4U_IMAGE_ID', $picture['id']);
             $template->assign('T4U_REFERER', urlencode((string) $picture['url']));
-            $template->assign('T4U_PERMISSION_DELETE', $this->plugin_config->hasPermission('delete'));
-            if ($this->plugin_config->hasPermission('existing_tags_only')) {
+            if ($this->plugin_config->hasPermission(PermissionEnum::EXISTING_TAGS_ONLY)) {
                 $template->assign('T4U_ALLOW_CREATION', 'false');
             } else {
                 $template->assign('T4U_ALLOW_CREATION', 'true');
@@ -62,7 +65,7 @@ class Content
         return $content;
     }
 
-    public static function picture_prefilter($source, $smarty)
+    public static function picturePrefilter(string $source, SmartyTemplate $smarty): string
     {
         $pattern = '{if $display_info.tags and isset($related_tags)}';
         $replace = '{if $display_info.tags}';
